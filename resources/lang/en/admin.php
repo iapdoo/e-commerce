@@ -1,7 +1,34 @@
 <?php
 return [
   'login'=>'Login',
-    'incorrect_information_login'=>'invalid email or password',
-    'forgot_password'=>' forgot  password',
-    'links_reset_sent'=>'Reset Link Is Sent'
+  'admin'=>'Admin Account',
+  'dashboard'=>'Dashboard',
+  'add'=>'Create New Admin',
+  'adminpanel'=>'Admin Panel',
+  'incorrect_information_login'=>'invalid email or password',
+  'forgot_password'=>' forgot  password',
+  'links_reset_sent'=>'Reset Link Is Sent',
+    'home'=>'Home',
+    'logout'=>'LogOut',
+    'Contact'=>'Contact',
+    'action'=>'Action',
+    'created_at'=>'Created At',
+    'updated_at'=>'Updated At',
+    'email'=>'E-mail',
+    'name'=>'Name',
+    'id'=>'Id',
+    'admin_control'=>'Admin Control',
+    'search'=>'Search',
+    'checkbox'=>'Checkbox',
+    'delete_all'=>'Delete All',
+    'password'=>'Password',
+    'creat_admin'=>'Creat Admin',
+    'edit_admin'=>'Edit Admin',
+    'record_added'=>'Admin Created successful',
+    'record_updated'=>'Admin updated successful',
+    'record_deleted'=>'Admin Deleted successful',
+    'edit'=>'Edit',
+    'delete'=>'Delete',
+
+
 ];
