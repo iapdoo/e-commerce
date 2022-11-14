@@ -4,6 +4,18 @@ if (!function_exists('aurl')){
         return url('admin/'.$url);
     }
 }
+//upload function
+if (!function_exists('up')){
+    function up(){
+        return new \App\Http\Controllers\Upload;
+    }
+}
+//end upload function
+if (!function_exists('setting')){
+    function setting($url=null){
+        return \App\Setting::orderBy('id','desc')->first();
+    }
+}
 
 
     if (!function_exists('admin')){
@@ -29,7 +41,7 @@ if (!function_exists('lang')){
         if (session()->has('lang')){
             return session('lang');
         }else{
-            return 'en';
+            return setting()->main_lang;
         }
     }
 
@@ -60,3 +72,17 @@ function user_type(){
     return $array;
 }
 // end dir() is helper function  that can change direction from right to left
+
+// end validate image helper function  that can validate extnition
+if (!function_exists('validate_image')){
+    function validate_image($ext=null){
+        if ($ext===null){
+            return 'image|mimes:jpg,jpeg,png,gif';
+        }else{
+            return 'image|mimes'.$ext;
+
+        }
+
+    }
+}
+// end validate image helper function  that can validate extnition

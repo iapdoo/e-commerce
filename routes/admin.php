@@ -28,6 +28,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
             $lang=='ar'?session()->put('lang','ar'):session()->put('lang','en');
             return back();
         });
+        Route::get('settings','settings@setting');
+        Route::post('settings','settings@setting_save');
+
 
 
     });

@@ -18,6 +18,12 @@
                         <p>{{trans('admin.dashboard')}}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{aurl('settings')}}" class="nav-link ">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{trans('admin.settings')}}</p>
+                    </a>
+                </li>
 
 
             </ul>
