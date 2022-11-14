@@ -11,8 +11,14 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     Route::get('reset/password/{token}','AdminAuth@reset_password');
     Route::post('reset/password/{token}','AdminAuth@reset_password_final');
 
+    Route::get('users/user','UsersController@get_user');
+    Route::get('users/vendor','UsersController@get_vendor');
+    Route::get('users/company','UsersController@get_company');
+
     Route::group(['middleware'=>'admin:admin'],function (){
         Route::resource('admin','AdminController');
+        Route::resource('users','UsersController');
+
         Route::get('/',function (){
             return view('admin.home');
         });

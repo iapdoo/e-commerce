@@ -2,9 +2,11 @@
 return [
   'login'=>'Login',
   'admin'=>'Admin Account',
+  'users'=>'User Account',
   'dashboard'=>'Dashboard',
   'add'=>'Create New Admin',
   'adminpanel'=>'Admin Panel',
+  'adminpanel_user'=>'User Panel',
   'incorrect_information_login'=>'invalid email or password',
   'forgot_password'=>' forgot  password',
   'links_reset_sent'=>'Reset Link Is Sent',
@@ -18,6 +20,7 @@ return [
     'name'=>'Name',
     'id'=>'Id',
     'admin_control'=>'Admin Control',
+    'user_control'=>'User Control',
     'search'=>'Search',
     'checkbox'=>'Checkbox',
     'delete_all'=>'Delete All',
@@ -29,6 +32,9 @@ return [
     'record_deleted'=>'Admin Deleted successful',
     'edit'=>'Edit',
     'delete'=>'Delete',
-
+    'user'=>'user',
+    'vendor'=>'vendor',
+    'company'=>'company',
+    'level'=>'level',
 
 ];
