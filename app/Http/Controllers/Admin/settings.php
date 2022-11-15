@@ -14,10 +14,19 @@ class settings extends Controller
     public function setting_save(){
         $data=  $this->validate(\request(),[
             'logo'=>validate_image(),
-            'icon'=>validate_image()
+            'icon'=>validate_image(),
+            'main_lang'=>'',
+            'massage_maintenance'=>'',
+            'status'=>'',
+            'keywords'=>'',
+            'description'=>'',
+            'email'=>'',
+            'sitename_en'=>'',
+            'sitename_ar'=>'',
         ],[], [
             'logo'=>trans('admin.logo'),
-            'icon'=>trans('admin.icon')
+            'icon'=>trans('admin.icon'),
+            'main_lang'=>trans('admin.main_lang'),
         ]);
         if (\request()->hasFile('logo')){
             $data['logo']=up()->upload([
@@ -38,7 +47,8 @@ class settings extends Controller
         ]);
         }
 
-        Setting::orderBy('id','desc')->update($data);
+       $x= Setting::orderBy('id','desc')->update($data);
+
         session()->flash('success',trans('admin.record_updated_setting'));
         return redirect(aurl('settings'));
     }

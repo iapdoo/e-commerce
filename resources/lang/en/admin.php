@@ -51,4 +51,5 @@ return [
     'open'=>'Open',
     'close'=>'Close',
     'massage_maintenance'=>'Massage Maintenance',
+    'record_updated_setting'=>'Setting updated successful',
 ];
