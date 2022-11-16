@@ -24,8 +24,6 @@
                         <p>{{trans('admin.settings')}}</p>
                     </a>
                 </li>
-
-
             </ul>
         </li>
         <li class="nav-item has-treeview {{active_menu('admin')[0]}}">
@@ -51,7 +49,7 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item has-treeview {{active_menu('users')[0]}}">
+        <li class="nav-item has-treeview {{active_menu('countries')[0]}}">
             <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
@@ -74,20 +72,43 @@
                 </li>
                 <li class="nav-item">
                     <a href="{{aurl('users/user')}}" class="nav-link">
-                        <i class="fas fa-plus nav-icon"></i>
+                        <i class="fas fa-users nav-icon"></i>
                         {{trans('admin.user')}}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{aurl('users/vendor')}}" class="nav-link">
-                        <i class="fas fa-plus nav-icon"></i>
+                        <i class="fas fa-venus nav-icon"></i>
                         {{trans('admin.vendor')}}
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{aurl('users/company')}}" class="nav-link">
-                        <i class="fas fa-plus nav-icon"></i>
+                        <i class="fas fa-compass nav-icon"></i>
                         {{trans('admin.company')}}
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview {{active_menu('countries')[0]}}">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-flag"></i>
+                <p>
+                    {{trans('admin.countries')}}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview {{active_menu('countries')[1]}}">
+                <li class="nav-item">
+                    <a href="{{aurl('countries')}}" class="nav-link">
+                        <i class="fas fa-flag nav-icon"></i>
+                        {{trans('admin.countries')}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{aurl('countries/create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        {{trans('admin.countries_add')}}
                     </a>
                 </li>
             </ul>

@@ -17,6 +17,7 @@ Route::group(['middleware'=>'Maintenance'], function () {
             return view('style.home');
         });
 });
+
 Route::get('maintenance', function () {
     if (setting()->status=='open'){
         return redirect('/');

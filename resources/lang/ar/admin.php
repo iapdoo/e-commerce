@@ -29,6 +29,7 @@ return [
     'delete_all'=>'حذف الكل المظلل',
     'creat_admin'=>'اضافه عضو',
     'edit_admin'=>'تعديل العضو',
+
     'record_added'=>' تم اضافه العضو بنجاح',
     'record_updated'=>' تم التعديل علي العضو بنجاح',
     'record_updated_setting'=>' تم التعديل علي اعدادات الموقع بنجاح',
@@ -54,5 +55,19 @@ return [
     'massage_maintenance'=>'رساله الصيانه',
     'open'=>'مفتوح',
     'close'=>'مغلق',
+    'countries'=>'الدول',
+    'countries_add'=>'اضافه دوله',
+    'countries_edit'=>'تعديل الدوله',
+    'countries_added'=>' تم اضافه الدوله بنجاح',
+    'countries_updated'=>' تم التعديل علي الدوله بنجاح',
+    'countries_deleted'=>' تم حذف الدوله بنجاح',
+    'country_name_ar'=>' اسم الدوله بالعربي',
+    'country_name_en'=>'اسم الدوله بالانجليزي',
+    'mob'=>'كود الدوله',
+    'code'=>'اختصار | رمز الدوله',
+    'country_logo'=>'شعار الدوله',
+
+
+
 
 ];

@@ -11,19 +11,23 @@ if (!function_exists('up')){
     }
 }
 //end upload function
+// function upload image  to site setting
 if (!function_exists('setting')){
     function setting($url=null){
         return \App\Setting::orderBy('id','desc')->first();
     }
 }
 
+// start function admin function
 
     if (!function_exists('admin')){
         function admin(){
             return auth()->guard('admin');
         }
     }
-    // Active menu function
+// end function admin function
+
+// start function Active menu function
     if (!function_exists('active_menu')){
         function active_menu($link){
             if (preg_match('/'.$link.'/i',Request::segment(2))){
@@ -33,7 +37,7 @@ if (!function_exists('setting')){
             }
         }
     }
-
+//start function Active menu function
 
 // start lang() is helper function that can change language from ar to en
 if (!function_exists('lang')){
@@ -47,6 +51,7 @@ if (!function_exists('lang')){
 
 }
 // end lang() is helper function that can change language from ar to en
+
 // start dir() is helper function  that can change direction from right to left
 
 if (!function_exists('direction')){

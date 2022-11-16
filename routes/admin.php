@@ -18,6 +18,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     Route::group(['middleware'=>'admin:admin'],function (){
         Route::resource('admin','AdminController');
         Route::resource('users','UsersController');
+        Route::resource('countries','CountriesController');
 
         Route::get('/',function (){
             return view('admin.home');

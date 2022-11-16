@@ -1,20 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class Upload extends Controller
 {
-    /*
-     *      'name',
-            'size',
-            'file',
-            'path',
-            'full_file',
-            'mime_type',
-            'file_type', // file type news product
-            'relation_id',
-     */
+
     public function upload($data=[]){
         if (in_array('new_name',$data)){
             $new_name=$data['new_name']===null?time():$data['new_name'];

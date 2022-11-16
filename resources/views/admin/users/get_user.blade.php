@@ -8,22 +8,12 @@
                 <div class="card">
                     <div class="card-body">
                         <div>
-                            {{--
-                                                        <!--
-                                                        {!! Form::open(['id'=>'form_delete','url'=>aurl('admin/destroy/all'),'method'=>'delete']) !!}
-                                                        {!! Form::submit(trans('admin.delete_all') ,['class'=>'btn btn-danger','name'=>'delete_all']) !!}
-                                                        {!! Form::close() !!}
-                                                        -->
-                            --}}
+
                         </div>
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                {{--
-                                <th> {{trans('admin.checkbox')}}
-                                    <input type="checkbox" name="item[]" class="check_all" onclick="check_all()">
-                                </th>
-                                --}}
+
                                 <th> {{trans('admin.delete')}} </th>
                                 <th> {{trans('admin.edit')}} </th>
                                 <th>{{trans('admin.created_at')}}</th>
@@ -39,11 +29,7 @@
                             @if($user->Level = trans('admin.user'))
                             @foreach($user as $userinfo)
                                 <tr>
-                                <!--
-                                    <td>
-                                        <input type="checkbox" name="item[]" class="item_checkbox" value="{{$userinfo->id}}">
-                                    </td>
-                                    -->
+
                                     <td>
                                         {!! Form::open(['id'=>'form_delete','url'=>aurl('users/'.$userinfo->id),'method'=>'delete']) !!}
                                         {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger fa fa-trash' ,'style'=>'inline']) !!}
@@ -56,9 +42,8 @@
                                     <td>{{$userinfo->updated_at}}</td>
                                     <td>{{$userinfo->email}}</td>
                                     <td>{{ $userinfo->name }}</td>
-                                    <td class="label
-                                    {{$userinfo->Level=='user'?'label-info':''}}
-                                    ">{{ $userinfo->Level }}</td>
+                                    <td class="label {{$userinfo->Level=='user'?'label-info':''}}">
+                                        {{ $userinfo->Level }}</td>
                                     <td>{{ $userinfo->id }}</td>
                                 </tr>
                             @endforeach

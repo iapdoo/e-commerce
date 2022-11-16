@@ -16,62 +16,67 @@
                                                         -->
                             --}}
                         </div>
-                        <table id="example2" class="table table-bordered table-hover">
+                            <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-
+                                {{--
+                                <th> {{trans('admin.checkbox')}}
+                                    <input type="checkbox" name="item[]" class="check_all" onclick="check_all()">
+                                </th>
+                                --}}
                                 <th> {{trans('admin.delete')}} </th>
                                 <th> {{trans('admin.edit')}} </th>
                                 <th>{{trans('admin.created_at')}}</th>
                                 <th>{{trans('admin.updated_at')}}</th>
-                                <th>{{trans('admin.email')}}</th>
-                                <th>ا{{trans('admin.name')}}</th>
-                                <th>ا{{trans('admin.level')}}</th>
+                                <th>{{trans('admin.country_name_ar')}}</th>
+                                <th>{{trans('admin.country_name_en')}}</th>
+                                <th>{{trans('admin.mob')}}</th>
+                                <th>{{trans('admin.code')}}</th>
+                                <th>{{trans('admin.country_logo')}}</th>
                                 <th>{{trans('admin.id')}}</th>
 
                             </tr>
                             </thead>
-                            @if(!empty($user))
                             <tbody>
-                                @foreach($user as $userinfo)
-                                    <tr>
-
-                                        <td>
-                                            {!! Form::open(['id'=>'form_delete','url'=>aurl('users/'.$userinfo->id),'method'=>'delete']) !!}
-                                            {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger fa fa-trash' ,'style'=>'inline']) !!}
-                                            {!! Form::close() !!}
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-primary" href="{{ url ('admin/users/'.$userinfo->id .'/edit') }} "> <i class="fa fa-edit"></i> </a>
-                                        </td>
-                                        <td>{{$userinfo->created_at}}</td>
-                                        <td>{{$userinfo->updated_at}}</td>
-                                        <td>{{$userinfo->email}}</td>
-                                        <td>{{ $userinfo->name }}</td>
-                                        <td class="label
-                                                {{$userinfo->Level=='vendor'?'label-primary':''}}
-                                                        ">{{ $userinfo->Level }}</td>
-                                        <td>{{ $userinfo->id }}</td>
-                                    </tr>
-                                @endforeach
-                            @else
+                            @foreach($countries as $countriesinfo)
                                 <tr>
                                     <td>
-                                        {{trans('admin.no_user')}}
+                                        {!! Form::open(['id'=>'form_delete','url'=>aurl('countries/'.$countriesinfo->id),'method'=>'delete']) !!}
+                                        {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger fa fa-trash' ,'style'=>'inline']) !!}
+                                        {!! Form::close() !!}
                                     </td>
+                                    <td>
+                                        <a class="btn btn-primary" href="{{ url ('admin/countries/'.$countriesinfo->id .'/edit') }} "> <i class="fa fa-edit"></i> </a>
+                                    </td>
+                                    <td>{{$countriesinfo->created_at}}</td>
+                                    <td>{{$countriesinfo->updated_at}}</td>
+                                    <td>{{$countriesinfo->country_name_ar}}</td>
+                                    <td>{{$countriesinfo->country_name_en}}</td>
+                                    <td>{{$countriesinfo->mob}}</td>
+                                    <td>{{$countriesinfo->code}}</td>
+                                    <td>
+                                        @if(!empty($countriesinfo->logo))
+                                            <img src="{{Storage::url($countriesinfo->logo)}}" style="width: 100px;height: 100px;">
+                                        @endif
+                                    </td>
+                                    <td>{{ $countriesinfo->id }}</td>
                                 </tr>
-                            @endif
+                            @endforeach
                             </tbody>
                             <tfoot>
                             <tr>
-
+                                {{--
+                                <th> {{trans('admin.checkbox')}} </th>
+                                --}}
                                 <th> {{trans('admin.delete')}} </th>
                                 <th> {{trans('admin.edit')}} </th>
                                 <th>{{trans('admin.created_at')}}</th>
                                 <th>{{trans('admin.updated_at')}}</th>
-                                <th>{{trans('admin.email')}}</th>
-                                <th>ا{{trans('admin.name')}}</th>
-                                <th>ا{{trans('admin.level')}}</th>
+                                <th>{{trans('admin.country_name_ar')}}</th>
+                                <th>ا{{trans('admin.country_name_en')}}</th>
+                                <th>ا{{trans('admin.mob')}}</th>
+                                <th>ا{{trans('admin.code')}}</th>
+                                <th>ا{{trans('admin.logo')}}</th>
                                 <th>{{trans('admin.id')}}</th>
                             </tr>
                             </tfoot>
@@ -80,7 +85,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="text-center">
-                        {{$user->appends(Request::except('page'))->render()}}
+                        {{$countries->appends(Request::except('page'))->render()}}
                     </div>
                 </div>
                 <!-- /.card -->
