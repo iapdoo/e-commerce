@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,4 +14,7 @@ class Country extends Model
              'code', //EG KSA
              'logo',
              ];
+    public function city(){
+        return $this->hasMany('App\Models\City','country_id','id');
+    }
 }

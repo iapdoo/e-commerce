@@ -16,11 +16,11 @@
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="{{url('/')}}/design/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
-    <link rel="stylesheet" href="{{url('/')}}/design/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{url('/')}}/design/adminlte/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     @if(direction()=='ltr')
+        <link rel="stylesheet" href="{{url('/')}}/design/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
         <link rel="stylesheet" href="{{url('/')}}/design/adminlte/dist/css/adminlte.min.css">
     @else
         <link rel="stylesheet" href="{{url('/')}}/design/adminlte/dist/css/AdminLTE.css">

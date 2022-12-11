@@ -14,7 +14,7 @@ if (!function_exists('up')){
 // function upload image  to site setting
 if (!function_exists('setting')){
     function setting($url=null){
-        return \App\Setting::orderBy('id','desc')->first();
+        return \App\Models\Setting::orderBy('id','desc')->first();
     }
 }
 

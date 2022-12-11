@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Country;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -103,7 +103,7 @@ class CountriesController extends Controller
             'logo'              =>trans('admin.country_logo'),
         ]);
         if (\request()->hasFile('logo')){
-            $data['logo']=up()->upload([
+            $data['logo']=up()->upload([ 
                 'file'=>'logo',
                 'path'=>'countries',
                 'upload_type'=>'single',

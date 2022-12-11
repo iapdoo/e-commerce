@@ -113,6 +113,29 @@
                 </li>
             </ul>
         </li>
+<li class="nav-item has-treeview {{active_menu('cities')[0]}}">
+            <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-flag"></i>
+                <p>
+                    {{trans('admin.cities')}}
+                    <i class="right fas fa-angle-left"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview {{active_menu('cities')[1]}}">
+                <li class="nav-item">
+                    <a href="{{aurl('cities')}}" class="nav-link">
+                        <i class="fas fa-flag nav-icon"></i>
+                        {{trans('admin.cities')}}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{aurl('cities/create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        {{trans('admin.cities_add')}}
+                    </a>
+                </li>
+            </ul>
+        </li>
 
     </ul>
 </nav>

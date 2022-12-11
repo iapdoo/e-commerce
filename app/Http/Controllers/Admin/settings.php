@@ -1,10 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Setting;
-use Illuminate\Http\Request;
+use App\Models\Setting;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
 class settings extends Controller
 {
