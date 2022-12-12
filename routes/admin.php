@@ -20,6 +20,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::resource('users','UsersController');
         Route::resource('countries','CountriesController');
         Route::resource('cities','CitiesController');
+        Route::resource('states','StateController');
 
         Route::get('/',function (){
             return view('admin.home');

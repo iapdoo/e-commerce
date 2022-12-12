@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\City;
+use App\Models\State;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
 
-class CitiesController extends Controller
+class StateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +15,10 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $title=trans('admin.cities');
-        $cities= City::with(['country'])->orderBy('id','desc')->paginate(6);
-//        return dd($cities);
-        return view('admin.cities.index',compact('cities','title'));
+        $title=trans('admin.states');
+        $states= State::with(['country', 'city'])->orderBy('id','desc')->paginate(6);
+//        return dd($states);
+        return view('admin.states.index',compact('states','title'));
     }
 
     /**
@@ -29,7 +28,7 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        return view('admin.cities.create',['title'=>trans('admin.cities_add')]);
+        return view('admin.states.create',['title'=>trans('admin.states_add')]);
     }
 
     /**
@@ -41,16 +40,17 @@ class CitiesController extends Controller
     public function store(Request $request)
     {
         $data=$this->validate($request,[
-            'city_name_ar'   =>'required',
-            'city_name_en'   =>'required',
+            'state_name_ar'   =>'required',
+            'state_name_en'   =>'required',
         ],[],[
-            'city_name_ar'   =>trans('admin.country_name_ar'),
-            'city_name_en'   =>trans('admin.country_name_en'),
+            'state_name_ar'   =>trans('admin.country_name_ar'),
+            'state_name_en'   =>trans('admin.country_name_en'),
         ]);
         $data['country_id']=$request->country_id;
-        City::create($data);
-        session()->flash('success',trans('admin.cities_added'));
-        return redirect(aurl('cities'));
+        $data['city_id']=$request->city_id;
+        State::create($data);
+        session()->flash('success',trans('admin.states_added'));
+        return redirect(aurl('states'));
     }
 
     /**
@@ -61,9 +61,9 @@ class CitiesController extends Controller
      */
     public function edit($id)
     {
-        $cities=City::find($id);
-        $title=trans('admin.cities_edit');
-        return view('admin.cities.edit',compact('cities','title'));
+        $states=State::find($id);
+        $title=trans('admin.states_edit');
+        return view('admin.states.edit',compact('states','title'));
     }
 
     /**
@@ -76,16 +76,17 @@ class CitiesController extends Controller
     public function update(Request $request, $id)
     {
         $data=$this->validate(\request(),[
-            'city_name_ar'   =>'required',
-            'city_name_en'   =>'required',
+            'state_name_ar'   =>'required',
+            'state_name_en'   =>'required',
         ],[],[
-            'city_name_ar'   =>trans('admin.country_name_ar'),
-            'city_name_en'   =>trans('admin.country_name_en'),
+            'state_name_ar'   =>trans('admin.country_name_ar'),
+            'state_name_en'   =>trans('admin.country_name_en'),
         ]);
         $data['country_id']=$request->country_id;
-        City::where('id',$id)->update($data);
-        session()->flash('success',trans('admin.cities_updated'));
-        return redirect(aurl('cities'));
+        $data['city_id']=$request->city_id;
+        State::where('id',$id)->update($data);
+        session()->flash('success',trans('admin.states_updated'));
+        return redirect(aurl('states'));
 
     }
 
@@ -99,10 +100,10 @@ class CitiesController extends Controller
     public function destroy($id)
     {
 
-       $cities= City::find($id);
-        $cities->delete();
-        session()->flash('success',trans('admin.cities_deleted'));
-        return redirect(aurl('cities'));
+        $states= State::find($id);
+        $states->delete();
+        session()->flash('success',trans('admin.states_deleted'));
+        return redirect(aurl('states'));
     }
 
 }

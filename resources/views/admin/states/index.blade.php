@@ -16,30 +16,32 @@
                                 <th> {{trans('admin.edit')}} </th>
                                 <th>{{trans('admin.created_at')}}</th>
                                 <th>{{trans('admin.updated_at')}}</th>
-                                <th>{{trans('admin.city_name_ar')}}</th>
-                                <th>{{trans('admin.city_name_en')}}</th>
+                                <th>{{trans('admin.state_name_ar')}}</th>
+                                <th>{{trans('admin.state_name_en')}}</th>
                                 <th>ا{{trans('admin.country_name_en')}}</th>
+                                <th>ا{{trans('admin.city_name_en')}}</th>
                                 <th>{{trans('admin.id')}}</th>
 
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($cities as $citiesinfo)
+                            @foreach($states as $statesinfo)
                                 <tr>
                                     <td>
-                                        {!! Form::open(['id'=>'form_delete','url'=>aurl('cities/'.$citiesinfo->id),'method'=>'delete']) !!}
+                                        {!! Form::open(['id'=>'form_delete','url'=>aurl('states/'.$statesinfo->id),'method'=>'delete']) !!}
                                         {!! Form::submit(trans('admin.delete'),['class'=>'btn btn-danger fa fa-trash' ,'style'=>'inline']) !!}
                                         {!! Form::close() !!}
                                     </td>
                                     <td>
-                                        <a class="btn btn-primary" href="{{ url ('admin/cities/'.$citiesinfo->id .'/edit') }} "> <i class="fa fa-edit"></i> </a>
+                                        <a class="btn btn-primary" href="{{ url ('admin/states/'.$statesinfo->id .'/edit') }} "> <i class="fa fa-edit"></i> </a>
                                     </td>
-                                    <td>{{$citiesinfo->created_at}}</td>
-                                    <td>{{$citiesinfo->updated_at}}</td>
-                                    <td>{{$citiesinfo->city_name_ar}}</td>
-                                    <td>{{$citiesinfo->city_name_en}}</td>
-                                    <td>{{$citiesinfo->country->country_name_ar}}</td>
-                                    <td>{{ $citiesinfo->id }}</td>
+                                    <td>{{$statesinfo->created_at}}</td>
+                                    <td>{{$statesinfo->updated_at}}</td>
+                                    <td>{{$statesinfo->state_name_ar}}</td>
+                                    <td>{{$statesinfo->state_name_en}}</td>
+                                    <td>{{$statesinfo->country->country_name_ar}}</td>
+                                    <td>{{$statesinfo->city->city_name_ar}}</td>
+                                    <td>{{ $statesinfo->id }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -49,9 +51,10 @@
                                 <th> {{trans('admin.edit')}} </th>
                                 <th>{{trans('admin.created_at')}}</th>
                                 <th>{{trans('admin.updated_at')}}</th>
-                                <th>{{trans('admin.city_name_ar')}}</th>
-                                <th>ا{{trans('admin.city_name_en')}}</th>
+                                <th>{{trans('admin.state_name_ar')}}</th>
+                                <th>ا{{trans('admin.state_name_en')}}</th>
                                 <th>ا{{trans('admin.country_name_en')}}</th>
+                                <th>ا{{trans('admin.city_name_en')}}</th>
                                 <th>{{trans('admin.id')}}</th>
                             </tr>
                             </tfoot>
@@ -60,7 +63,7 @@
                     </div>
                     <!-- /.card-body -->
                     <div class="text-center">
-                        {{$cities->appends(Request::except('page'))->render()}}
+                        {{$states->appends(Request::except('page'))->render()}}
                     </div>
                 </div>
                 <!-- /.card -->

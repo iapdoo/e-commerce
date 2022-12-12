@@ -64,4 +64,12 @@ return [
     'mob'=>'curancy',
     'code'=>'Code',
     'country_logo'=>'Country Logo',
+    'cities'=>'Cities',
+    'cities_add'=>'Add New Cities',
+    'cities_edit'=>' Cities Edit',
+    'cities_added'=>'Cities Added',
+    'cities_updated'=>'Cities Updated',
+    'cities_deleted'=>'Cities Deleted',
+    'city_name_ar'=>'City Name Arabic',
+    'city_name_en'=>'City Name English',
 ];
